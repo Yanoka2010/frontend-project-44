@@ -1,39 +1,36 @@
 #!/usr/bin/env node
-import readlineSync from 'readline-sync';
-import { User } from '../src/cli.js';
+import { createRequire } from 'module';
 
-const userName = User();
+const require = createRequire(import.meta.url);
+const readlineSync = require('readline-sync');
 
+console.log('Welcome to the Brain Games!');
+const playerName = readlineSync.question('May I have your name? ');
+console.log(`Hello, ${playerName}!`);
 console.log('Answer "yes" if the number is even, otherwise answer "no".');
+let mark = true;
+let level = 0;
+let keyAswer = '';
 
-const task = () => {
-  const q = Math.round(Math.random() * 100);
-  let a = '';
-  if (q % 2 === 0) {
-    a = 'yes';
+while (mark === true && level < 3) {
+  level += 1;
+  const number = Math.floor(Math.random() * 100);
+  console.log(`Question: ${number} `);
+  const answer = readlineSync.question('Your answer: ');
+  if (number % 2 === 0) {
+    keyAswer = 'yes';
   } else {
-    a = 'no';
+    keyAswer = 'no';
   }
-
-  return [q, a];
-};
-
-let mark = 0;
-for (let i = 1; i <= 3; i += 1) {
-  const step = task();
-  console.log(`Question: ${step[0]}`);
-  const answer = readlineSync.question('Answer: ');
-  if (answer === step[1]) {
+  if (answer === keyAswer) {
     console.log('Correct!');
-    mark += 1;
   } else {
-    console.log(`${answer} is wrong answer ;(. Correct answer was ${step[1]}`);
-    console.log(`Let's try again, ${userName}`);
-    break;
+    console.log(`${answer} is wrong answer ;(. Correct answer was ${keyAswer}.`);
+    mark = false;
   }
 }
-
-if (mark === 3) {
-  console.log(`Congratulations, ${userName}!`);
+if (mark === true) {
+  console.log(`Congratulations, ${playerName}!`);
+} else {
+  console.log(`Let's try again, ${playerName}!`);
 }
-console.log(task());
