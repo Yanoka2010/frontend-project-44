@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 import readlineSync from 'readline-sync';
-import greeting from '../src/cli.js';
+import { User } from '../src/cli.js';
 
-const userName = greeting();
+const userName = User();
 
 console.log('Answer "yes" if the number is even, otherwise answer "no".');
 
