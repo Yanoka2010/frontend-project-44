@@ -2,8 +2,7 @@
 /* eslint-disable import/extensions */
 /* eslint-disable import/named */
 /* eslint-disable no-console */
-import readlineSync from 'readline-sync';
-import { User } from '../src/cli.js';
+import { str, brainPrime } from '../src/games/prime.js';
 import { brainGameStart } from '../src/index.js';
 
 function isPrime(num) {
