@@ -17,7 +17,6 @@ const findGCD = (num1, num2) => {
 };
 
 export const brainGCD = (name) => {
-  console.log('123213');
   const [number1, number2] = [getRandomInt(0, randMax), getRandomInt(0, randMax)];
   const correctAnswer = findGCD(number1, number2);
   const question = `${number1} ${number2}`;

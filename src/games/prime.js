@@ -29,7 +29,3 @@ export const brainPrime = (name) => {
   const answer = getAnswer(question);
   return answerCheck(answer, correctAnswer, name);
 };
-  
-  const gameName = brainPrime;
-  const PlayerName = User();
-  console.log('Answer "yes" if given number is prime. Otherwise answer "no".');
