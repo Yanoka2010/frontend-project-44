@@ -22,6 +22,7 @@ function brainGCD(PlayerName) {
   const correctAnswer = findGCD(number1, number2);
   console.log(`Question: ${number1} ${number2}`);
   const answer = readlineSync.question('Your answer: ');
+  console.log('121342343123');
   if (parseInt(answer, 10) === correctAnswer) {
     console.log('Correct!');
     return 1;
